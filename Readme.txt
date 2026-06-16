@@ -9,7 +9,7 @@ python site_worker.py
 
 server_upload_worker.py
 
-사용자가 직접 입력한 키워드나 keywords.txt 파일을 처리한 뒤, 결과 JSON을 merge worker 서버로 업로드하는 스크립트이다.
+사용자가 직접 입력한 키워드나 keywords.txt 파일을 처리한 뒤, 결과 JSON을 Oracle Cloud 서버로 업로드하는 스크립트이다.
 서버 작업 큐를 기다리지 않고, 직접 지정한 키워드를 실행할 때 사용한다.
 
 단일 키워드 실행:
