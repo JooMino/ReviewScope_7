@@ -22,7 +22,9 @@ python server_upload_worker.py --keywords-file keywords.txt --sites dc,clien,fmk
 python server_upload_worker.py "검색어" --llm-only
 
 
-차이 요약
+## 데이터 저장 과정
 
-site_worker.py는 서버가 내려주는 작업을 받아 자동으로 처리한다.
-server_upload_worker.py는 사용자가 직접 지정한 키워드를 처리해서 서버로 업로드한다.
+- 로컬 또는 조원 PC에서 `server_upload_worker.py`를 실행하면 크롤링, LLM 분석, 딥서치가 순서대로 수행됩니다.
+- 분석이 끝나면 결과 JSON이 우분투 서버의 `server_upload_receiver.py`로 전송됩니다.
+- Oracle Cloud 서버에서 실행 중인 `server_upload_receiver.py`는 결과 JSON과 언급량 데이터를 병합한 뒤 Oracle Cloud 안의 mysql DB로 업로드합니다.
+- 업로드된 데이터는 DB에 누적 저장되며, 이후 리뷰 분석 결과 조회와 통계 시각화에 활용됩니다.
